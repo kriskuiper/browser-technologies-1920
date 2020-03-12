@@ -91,3 +91,31 @@ Om dit te testen heb ik de network laten throttlen door de developer tools van C
 
 #### Hoe te fixen?
 Service worker gebruiken om zoveel mogelijk static assets te cachen.
+
+## 2. Het testen van je applicatie met gebruik van een screen reader
+Als je op de applicatie zelf komt merk ik dat de 'luister' button totaal geen feedback geeft. Je hoort dan alleen "knop". Dit geeft dus totaal geen feedback aan de gebruiker. Daarnaast zegt het formulier alleen "jouw antwoord" omdat er een onzichtbaar label bij staat met "jouw antwoord".
+
+Ik merk dat je bij de resultaten niet door de resultaten heen kan tabben. Dit is frustrerend voor een gebruiker die alleen gebruik maakt van de voice-over om te navigeren door de website omdat je niet weet welke boeken er zijn.
+
+### Hoe te fixen?
+De issues kan ik op een aantal manieren fixen. Wanneer de gebruiker resultaten krijgt zou je bijvoorbeeld direct met JS kunnen focussen naar 'x resultaten gevonden met "zoekopdracht"' om vervolgens de resultaten ook focusable te maken. Ook zou je die luister knop meer context moeten geven door bijvoorbeeld een onzichtbaar en betekenisvol tekstje neer te zetten in de button.
+
+## 3. Het testen van je applicatie op drie andere devices
+
+### 3.1. Windows Tablet
+- Browser: Internet Explorer 11.0
+- Operating System: Windows 8.1
+
+Op dit device lijkt het dat JavaScript niet ingeladen wordt, er word dus totaal geen content ingeladen en alles wat je ziet is een rode achtergrond... Ik ga er vanuit dat dit ligt aan het feit dat ik een 'nieuw' JavaScript framework gebruik en de code die ik schrijf niet getranspiled wordt naar oudere JavaScript.
+
+### 3.2. Nokia Lumia 620
+- Browser: Internet Explorer 11.0
+- Operating System: Windows Phone 8.1
+
+Ook op dit device wordt de content van mijn website niet ingeladen... Zie ook bovenstaande comments voor een verdere uitleg.
+
+### 3.3. HTC Nexus 9
+- Browser: Chrome 80
+- Operating System: Android 7.1.1
+
+Op dit device werkt mijn hele applicatie naar behoren. Wel lijkt het device wat moeite te hebben met het implementeren van de web-speech API omdat het langer duurt dan op mijn laptop om de spraak te interpreteren. Wel laadt de website alsnog kneiter snel.
