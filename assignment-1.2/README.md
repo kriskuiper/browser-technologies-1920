@@ -119,3 +119,28 @@ Ook op dit device wordt de content van mijn website niet ingeladen... Zie ook bo
 - Operating System: Android 7.1.1
 
 Op dit device werkt mijn hele applicatie naar behoren. Wel lijkt het device wat moeite te hebben met het implementeren van de web-speech API omdat het langer duurt dan op mijn laptop om de spraak te interpreteren. Wel laadt de website alsnog kneiter snel.
+
+## 4. Het testen van je applicatie op drie verschillende browsers
+
+### 4.1. Chrome 80
+![App in Chrome](assets/chrome.png)
+
+In Chrome werkt mijn applicatie naar behoren, de layout gaat niet stuk en alle functionaliteit is beschikbaar.
+
+### 4.2. Edge 76 (dev)
+![App in Edge](assets/edge.png)
+
+In Edge werkt mijn applicatie eveneens naar behoren. De layout blijft heel en de functionaliteiten zijn beschikbaar.
+
+### 4.3. Firefox 73
+![App in Firefox](assets/firefox.png)
+
+In Firefox werkt mijn applicatie niet, dit ligt aan het feit dat ik gebruik maak van de Web Speech API en geen fallback heb als deze niet wordt herkend.
+
+### 4.4. Safari 13.0.5
+![App in Safari](assets/safari.png)
+
+In Safari werkt mijn applicatie niet, dit ligt aan het feit dat ik gebruik maak van de Web Speech API en geen fallback heb als deze niet wordt herkend.
+
+#### Hoe te fixen?
+Ik kan dit fixen door support te houden voor het tekstueel invullen van de input en een fallback te schrijven voor het gebruik van de Web Speech API.
