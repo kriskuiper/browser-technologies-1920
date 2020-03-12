@@ -14,7 +14,7 @@ Wat gebeurd er met een website als de volgende zaken gebeuren:
 * De flow van het toevoegen van een product aan je winkelmandje is anders. Als je dit doet zonder JS wordt je naar je winkelmandje gestuurd, met JS opent een modal met een bevestiging die je dan kan sluiten.
 * Ik ben wel de state kwijt dat m’n product is toegevoegd aan een winkelmandje, met JS veranderd het icoontje.
 
-![Bol.com screenshot]()
+![Bol.com screenshot](assets/bol.png)
 
 *Hoe kan je dit testen?*
 Persoonlijk maak ik gebruik van een web dev extension in Chrome waardoor ik door 1 klik op de knop JavaScript kan uitzetten. Als je dan naar een website gaat is JavaScript uitgeschakeld.
@@ -28,7 +28,7 @@ De content pagina’s van The Sting werken prima, alles wordt gewoon geladen. Ec
 
 Je krijgt als je cookies uit hebt staan een localStorage error… wellicht dat het daar aan ligt. Ook heb ik geen mogelijkheid om de zoekfunctie te gebruiken met cookies die uit staan, dit ligt eerder aan de localStorage issue denk ik dan dat het ligt aan het uit hebben staan van cookies.
 
-![The Sting screenshot]()
+![The Sting screenshot](assets/sting.png)
 
 *Hoe kan je dit testen?*
 Persoonlijk maak ik gebruik van een web dev extension in Chrome waardoor ik door 1 klik op de knop JavaScript kan uitzetten.
