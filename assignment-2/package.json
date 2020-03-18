@@ -1,0 +1,21 @@
+{
+  "name": "assignment-2",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "module-alias": "^2.2.2",
+    "nunjucks": "^3.2.1"
+  },
+  "_moduleAliases": {
+    "@lib": "./lib"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  }
+}
