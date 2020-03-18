@@ -23,7 +23,7 @@ De gebruiker kan via een `<input type="text" />` de naam van de wedstrijd neerze
 De gebruiker kan op een 'opslaan' button klikken om hun notities (danwel tussentijds danwel aan het eind) op te slaan. De data wordt verstuurd naar een database. ~~Hiervoor moet de gebruiker echter wel eerst inloggen?~~
 
 #### 3. Doorsturen van uitslagen / tijden naar anderen
-De meest simpele versie is hier om je pagina te printen en de boel op de post te doen, maar daar kunnen we vast iets beters voor verzinnen?
+Hier kunnen we queryparams gebruiken om alle content op te slaan, die link, inclusief query params kunnen gebruikers dan delen met vrienden, hierdoor staat die content altijd op de pagina omdat we de query uitlezen.
 
 ### Usable
 Met deze usable laag gaan we er vanuit dat we o.a. CSS tot onze beschikking hebben waardoor we al wat geavanceerdere design patterns toe kunnen passen en het gebruik van de applicatie al een stukje beter maken.
