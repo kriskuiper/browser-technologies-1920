@@ -7,8 +7,21 @@
     <title>My cycling journal</title>
 </head>
 <body>
-    <h1>Take notes of cycling races</h1>
-    <p>Watch, save, share</p>
+    <h1>Zet je uitslagen neer en deel ze met vrienden</h1>
+
+    <form action="/detail">
+        <label>
+            Naam van de wedstrijd:
+            <input type="text" name="match-name">
+        </label>
+
+        <label>
+            Jouw uitslag:
+            <textarea name="match-description" cols="50" rows="20"></textarea>
+        </label>
+
+        <button type="submit">Opslaan</button>
+    </form>
 
     <script src="/scripts/index.js"></script>
 </body>

@@ -10,7 +10,8 @@
   "dependencies": {
     "express": "^4.17.1",
     "module-alias": "^2.2.2",
-    "nunjucks": "^3.2.1"
+    "nunjucks": "^3.2.1",
+    "query-string": "^6.11.1"
   },
   "_moduleAliases": {
     "@lib": "./lib"

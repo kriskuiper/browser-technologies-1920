@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Share</title>
+</head>
+<body>
+    <main>
+        <section>
+            <h1>Deel met je vriend</h1>
+            <p>Ontvanger: {{ email }}</p>
+        </section>
+
+        <section>
+            <h2>Bericht:</h2>
+            <article>
+                <h3>{{ name }}</h3>
+                <p>{{ description }}</p>
+            </article>
+        </section>
+    </main>
+
+    <a href="mailto:{{ email }}?subject={{ name }}&body={{ url }}">Versturen</a>
+</body>
+</html>
