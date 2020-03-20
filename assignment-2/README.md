@@ -1,6 +1,13 @@
 # Browser technologies assignment 2
 > Work out a case and make the functionality work for every user; regardless of context, browser,device or input type.
 
+Dit project is een Express (Node JS) applicatie omdat ik voor mijn oplossing het e.e.a. aan server-side logica nodig heb. Zo maak ik bijvoorbeeld in de meest simpele versie veel gebruik van queryparams om de opgeschreven uitslagen deelbaar te maken.
+
+## Waar wil je feedback over?
+1. Ik wil me met deze applicatie gaan focussen op het laten zien van uitslagen van een bepaalde Tour de France etappe. Hoe kan ik dit nog wat fancyer maken in plaats van alleen maar de gebruiker uitslagen laten invullen en delen?
+2. In hoeverre kan ik die hidden input fields (zie `views/detail`) "misbruiken" totdat het een lelijke oplossing wordt?
+3. ...
+
 ## Gekozen use case:
 > Ik wil de scores of tijden van een sportwedstrijd kunnen bijhouden tijdens de wedstrijd en opslaan en doorsturen
 
