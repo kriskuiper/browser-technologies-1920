@@ -13,11 +13,7 @@ const app = express()
 app.use(express.static('static'))
 
 app.get('/', (request, response) => {
-    const stage = db
-        .get('stages').find({ id: 1 })
-        .value()
-
-    response.send(renderer.render('index.html', { stage }))
+    response.redirect('/stage-1/stage_ranking/yellow')
 })
 
 app.get('/stage-:id/:classification/:ranking', (request, response) => {
