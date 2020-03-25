@@ -6,7 +6,7 @@
     <title>Current standings</title>
 </head>
 <body>
-    <main>
+    <header>
         <h1>Stage {{ stage.id }}: {{ stage.name }}</h1>
 
         <nav>
@@ -22,7 +22,9 @@
                 <li><a href="/stage-{{ stage.id }}/{{ classification }}/youth">Youth standings</a></li>
             </ul>
         </nav>
+    </header>
 
+    <main>
         <section>
             <h2>Stage information:</h2>
             <p>Total: {{ stage.distance_total }}km</p>
@@ -33,6 +35,7 @@
                 {% for rider in data %}
                     <li>
                         <p>{{ rider.name }}</p>
+                        <p>Team: {{ rider.team }}</p>
                         <p>Gap: {{ rider.gap }}</p>
                     </li>
                 {% endfor %}
