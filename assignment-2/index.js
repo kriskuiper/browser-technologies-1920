@@ -13,21 +13,50 @@ const app = express()
 app.use(express.static('static'))
 
 app.get('/', (request, response) => {
-    response.sendFile(path.join(__dirname, './static/index.html'))
+    const stage = db
+        .get('stages').find({ id: 1 })
+        .value()
+
+    response.send(renderer.render('index.html', { stage }))
 })
 
-app.get('/detail', (request, response) => {
-    const name = request.query['match-name']
-    const description = request.query['match-description']
-    const url = `${request.protocol}://${request.host}${request.originalUrl}`
+app.get('/stage-:id/:classification/:ranking', (request, response) => {
+    const { id, classification, ranking } = request.params
+    const stageId = Number(id)
 
-    response.send(renderer.render('detail.html', { name, description, url }))
-})
+    const stage = db
+        .get('stages').find({ id: stageId })
+        .value()
 
-app.get('/share', (request, response) => {
-    const { email, name, description, url } = request.query
+    const standings = stage[classification][ranking]
+    const riders = standings
+        .map(rider => {
+            return db.get('riders')
+                .find({ rider_nr: rider.rider })
+                .value()
+        })
+    
+    const data = standings
+        .map((rider, index) => {
+            return {
+                ...rider,
+                ...riders[index]
+            }
+        })
+        .sort((a, b) => {
+            if (a.rank > b.rank) {
+                return 1
+            } else {
+                return -1
+            }
+        })
 
-    response.send(renderer.render('share.html', { email, name, description, url }))
+    response.send(renderer.render('index.html', {
+        stage,
+        data,
+        classification,
+        ranking
+    }))
 })
 
 app.listen(PORT, () => {

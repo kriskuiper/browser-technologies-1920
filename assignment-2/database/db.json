@@ -2,7 +2,7 @@
     "stages": [
         {
             "id": 1,
-            "name": "",
+            "name": "Nice Moyen Pays - Nice",
             "distance_total": 118,
             "distance_from_start": 70,
             
@@ -33,22 +33,22 @@
                     {
                         "rank": 4,
                         "rider": 12,
-                        "gap": "0"
+                        "gap": "-20"
                     },
                     {
                         "rank": 1,
                         "rider": 43,
-                        "gap": "00H 00' 01"
+                        "gap": "0"
                     },
                     {
                         "rank": 3,
                         "rider": 2,
-                        "gap": "00H 01' 06"
+                        "gap": "-12"
                     },
                     {
                         "rank": 2,
                         "rider": 71,
-                        "gap": "00H 01' 06"
+                        "gap": "-10"
                     }
                 ],
                 "climber": [
@@ -82,7 +82,7 @@
                     {
                         "rank": 2,
                         "rider": 71,
-                        "gap": "00H 01' 06"
+                        "gap": "00H 01' 08"
                     }
                 ],
                 "team": [
@@ -143,22 +143,22 @@
                     {
                         "rank": 4,
                         "rider": 12,
-                        "gap": "0"
+                        "gap": "-20"
                     },
                     {
                         "rank": 1,
                         "rider": 43,
-                        "gap": "00H 00' 01"
+                        "gap": "0"
                     },
                     {
                         "rank": 3,
                         "rider": 2,
-                        "gap": "00H 01' 06"
+                        "gap": "-12"
                     },
                     {
                         "rank": 2,
                         "rider": 71,
-                        "gap": "00H 01' 06"
+                        "gap": "-10"
                     }
                 ],
                 "climber": [

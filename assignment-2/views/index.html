@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Current standings</title>
+</head>
+<body>
+    <main>
+        <h1>Stage {{ stage.id }}: {{ stage.name }}</h1>
+
+        <nav>
+            <ul>
+                <li><a href="/stage-{{ stage.id }}/{{ classification }}/yellow">General standings</a></li>
+                <li><a href="/stage-{{ stage.id }}/{{ classification }}/points">Points standings</a></li>
+                <li><a href="/stage-{{ stage.id }}/{{ classification }}/climber">Climber standings</a></li>
+                <li><a href="/stage-{{ stage.id }}/{{ classification }}/youth">Youth standings</a></li>
+            </ul>
+        </nav>
+
+        <section>
+            <h2>Stage information:</h2>
+            <p>Total: {{ stage.distance_total }}km</p>
+            <p>Ridden: {{ stage.distance_from_start }}km</p>
+
+            <h3>Standings:</h3>
+            <ol>
+                {% for rider in data %}
+                    <li>
+                        <p>{{ rider.name }}</p>
+                        <p>Gap: {{ rider.gap }}</p>
+                    </li>
+                {% endfor %}
+            </ol>
+        </section>
+    </main>
+</body>
+</html>
