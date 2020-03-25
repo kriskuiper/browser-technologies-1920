@@ -26,6 +26,8 @@
 
     <main>
         <section>
+            <a href="/share?id={{ stage.id }}&classification={{ classification }}&ranking={{ ranking }}">Share the standings</a>
+
             <h2>Stage information:</h2>
             <p>Total: {{ stage.distance_total }}km</p>
             <p>Ridden: {{ stage.distance_from_start }}km</p>
@@ -42,22 +44,5 @@
             </ol>
         </section>
     </main>
-
-    <footer>
-        <h2>Share the standings with your friends</h2>
-
-        <form action="/share">
-            <label>
-                Your friends' email
-                <input type="email" name="email">
-            </label>
-
-            <input type="hidden" name="stage_id" value="{{ stage.id }}">
-            <input type="hidden" name="classification" value="{{ classification }}">
-            <input type="hidden" name="ranking" value="{{ ranking }}">
-
-            <button>Submit</button>
-        </form>
-    </footer>
 </body>
 </html>

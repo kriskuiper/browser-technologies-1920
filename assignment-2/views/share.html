@@ -6,21 +6,28 @@
     <title>Share</title>
 </head>
 <body>
-    <main>
-        <section>
-            <h1>Deel met je vriend</h1>
-            <p>Ontvanger: {{ email }}</p>
-        </section>
+    <h2>Share the standings with your friends</h2>
 
-        <section>
-            <h2>Bericht:</h2>
-            <article>
-                <h3>{{ name }}</h3>
-                <p>{{ description }}</p>
-            </article>
-        </section>
-    </main>
+    <form action="/send">
+        <div>
+            <label>
+                Your friends' email
+                <input type="email" name="email">
+            </label>
+        </div>
 
-    <a href="mailto:{{ email }}?subject={{ name }}&body={{ url }}">Versturen</a>
+        <div>
+            <label>
+                Your message
+                <textarea name="message" cols="30" rows="10"></textarea>
+            </label>
+        </div>
+
+        <input type="hidden" name="stage_id" value="{{ id }}">
+        <input type="hidden" name="classification" value="{{ classification }}">
+        <input type="hidden" name="ranking" value="{{ ranking }}">
+
+        <button>Submit</button>
+    </form>
 </body>
 </html>
