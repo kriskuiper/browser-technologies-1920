@@ -11,8 +11,13 @@
 
         <nav>
             <ul>
-                <li><a href="/stage-{{ stage.id }}/{{ classification }}/yellow">General standings</a></li>
-                <li><a href="/stage-{{ stage.id }}/{{ classification }}/points">Points standings</a></li>
+                <li><a href="/stage-{{ stage.id }}/stage_ranking/{{ ranking }}">Stage ranking</a></li>
+                <li><a href="/stage-{{ stage.id }}/general_ranking/{{ ranking }}">General ranking</a></li>
+            </ul>
+
+            <ul>
+                <li><a href="/stage-{{ stage.id }}/{{ classification }}/yellow">Yellow jersey</a></li>
+                <li><a href="/stage-{{ stage.id }}/{{ classification }}/points">Points jersey</a></li>
                 <li><a href="/stage-{{ stage.id }}/{{ classification }}/climber">Climber standings</a></li>
                 <li><a href="/stage-{{ stage.id }}/{{ classification }}/youth">Youth standings</a></li>
             </ul>
