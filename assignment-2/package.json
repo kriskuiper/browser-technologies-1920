@@ -16,7 +16,8 @@
   },
   "_moduleAliases": {
     "@lib": "./lib",
-    "@database": "./database"
+    "@database": "./database",
+    "@routes": "./routes"
   },
   "devDependencies": {
     "nodemon": "^2.0.2"

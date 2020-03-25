@@ -42,5 +42,22 @@
             </ol>
         </section>
     </main>
+
+    <footer>
+        <h2>Share the standings with your friends</h2>
+
+        <form action="/share">
+            <label>
+                Your friends' email
+                <input type="email" name="email">
+            </label>
+
+            <input type="hidden" name="stage_id" value="{{ stage.id }}">
+            <input type="hidden" name="classification" value="{{ classification }}">
+            <input type="hidden" name="ranking" value="{{ ranking }}">
+
+            <button>Submit</button>
+        </form>
+    </footer>
 </body>
 </html>
