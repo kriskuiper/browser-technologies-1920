@@ -5,6 +5,7 @@ const queryString = require('query-string')
 
 const { DEFAULT_PORT } = require('@lib/constants')
 const renderer = require('@lib/renderer')
+const db = require('@database/db-instance')
 
 const PORT = process.env.PORT || DEFAULT_PORT
 const app = express()

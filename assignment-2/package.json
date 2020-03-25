@@ -15,7 +15,8 @@
     "query-string": "^6.11.1"
   },
   "_moduleAliases": {
-    "@lib": "./lib"
+    "@lib": "./lib",
+    "@database": "./database"
   },
   "devDependencies": {
     "nodemon": "^2.0.2"
