@@ -1,10 +1,280 @@
 {
-    "etappes": [
+    "stages": [
         {
-            "id": 18,
-            "naam": "Henkie",
-            "van": "A",
-            "naar": "B"
+            "id": 1,
+            "name": "",
+            "distance_total": 118,
+            "distance_from_start": 70,
+            
+            "general_ranking": {
+                "yellow": [
+                    {
+                        "rank": 1,
+                        "rider": 12,
+                        "gap": "0"
+                    },
+                    {
+                        "rank": 2,
+                        "rider": 43,
+                        "gap": "00H 00' 01"
+                    },
+                    {
+                        "rank": 3,
+                        "rider": 2,
+                        "gap": "00H 01' 06"
+                    },
+                    {
+                        "rank": 4,
+                        "rider": 71,
+                        "gap": "00H 01' 06"
+                    }
+                ],
+                "points": [
+                    {
+                        "rank": 4,
+                        "rider": 12,
+                        "gap": "0"
+                    },
+                    {
+                        "rank": 1,
+                        "rider": 43,
+                        "gap": "00H 00' 01"
+                    },
+                    {
+                        "rank": 3,
+                        "rider": 2,
+                        "gap": "00H 01' 06"
+                    },
+                    {
+                        "rank": 2,
+                        "rider": 71,
+                        "gap": "00H 01' 06"
+                    }
+                ],
+                "climber": [
+                    {
+                        "rank": 4,
+                        "rider": 12,
+                        "gap": "00H 01' 06"
+                    },
+                    {
+                        "rank": 3,
+                        "rider": 43,
+                        "gap": "00H 01' 06"
+                    },
+                    {
+                        "rank": 1,
+                        "rider": 2,
+                        "gap": "0"
+                    },
+                    {
+                        "rank": 2,
+                        "rider": 71,
+                        "gap": "00H 00' 01"
+                    }
+                ],
+                "youth": [
+                    {
+                        "rank": 1,
+                        "rider": 2,
+                        "gap": "00H 01' 06"
+                    },
+                    {
+                        "rank": 2,
+                        "rider": 71,
+                        "gap": "00H 01' 06"
+                    }
+                ],
+                "team": [
+                    {
+                        "rank": 1,
+                        "name": "Bora Hansgrohe",
+                        "gap": "0"
+                    }
+                ],
+                "combative": [
+                    {
+                        "rank": 4,
+                        "rider": 12,
+                        "gap": "00H 01' 06"
+                    },
+                    {
+                        "rank": 3,
+                        "rider": 43,
+                        "gap": "00H 01' 06"
+                    },
+                    {
+                        "rank": 1,
+                        "rider": 2,
+                        "gap": "0"
+                    },
+                    {
+                        "rank": 2,
+                        "rider": 71,
+                        "gap": "00H 00' 01"
+                    }
+                ]
+            },
+
+            "stage_ranking": {
+                "yellow": [
+                    {
+                        "rank": 1,
+                        "rider": 12,
+                        "gap": "0"
+                    },
+                    {
+                        "rank": 2,
+                        "rider": 43,
+                        "gap": "00H 00' 01"
+                    },
+                    {
+                        "rank": 3,
+                        "rider": 2,
+                        "gap": "00H 01' 06"
+                    },
+                    {
+                        "rank": 4,
+                        "rider": 71,
+                        "gap": "00H 01' 06"
+                    }
+                ],
+                "points": [
+                    {
+                        "rank": 4,
+                        "rider": 12,
+                        "gap": "0"
+                    },
+                    {
+                        "rank": 1,
+                        "rider": 43,
+                        "gap": "00H 00' 01"
+                    },
+                    {
+                        "rank": 3,
+                        "rider": 2,
+                        "gap": "00H 01' 06"
+                    },
+                    {
+                        "rank": 2,
+                        "rider": 71,
+                        "gap": "00H 01' 06"
+                    }
+                ],
+                "climber": [
+                    {
+                        "rank": 4,
+                        "rider": 12,
+                        "gap": "00H 01' 06"
+                    },
+                    {
+                        "rank": 3,
+                        "rider": 43,
+                        "gap": "00H 01' 06"
+                    },
+                    {
+                        "rank": 1,
+                        "rider": 2,
+                        "gap": "0"
+                    },
+                    {
+                        "rank": 2,
+                        "rider": 71,
+                        "gap": "00H 00' 01"
+                    }
+                ],
+                "youth": [
+                    {
+                        "rank": 1,
+                        "rider": 2,
+                        "gap": "00H 01' 06"
+                    },
+                    {
+                        "rank": 2,
+                        "rider": 71,
+                        "gap": "00H 01' 06"
+                    }
+                ],
+                "team": [
+                    {
+                        "rank": 1,
+                        "name": "Bora Hansgrohe",
+                        "gap": "0"
+                    }
+                ],
+                "combative": [
+                    {
+                        "rank": 4,
+                        "rider": 12,
+                        "gap": "00H 01' 06"
+                    },
+                    {
+                        "rank": 3,
+                        "rider": 43,
+                        "gap": "00H 01' 06"
+                    },
+                    {
+                        "rank": 1,
+                        "rider": 2,
+                        "gap": "0"
+                    },
+                    {
+                        "rank": 2,
+                        "rider": 71,
+                        "gap": "00H 00' 01"
+                    }
+                ]
+            }
+        }
+    ],
+    "riders": [
+        {
+            "name": "Egan Bernal",
+            "team": "Team INEOS",
+            "rider_nr": 2,
+            "country": "Colombia",
+            "rankings": [
+                {
+                    "stage_id": 1,
+                    "place": 4
+                }
+            ]
+        },
+        {
+            "name": "Thibaut Pinot",
+            "team": "Groupama - FDJ",
+            "rider_nr": 43,
+            "country": "France",
+            "rankings": [
+                {
+                    "stage_id": 1,
+                    "place": 2
+                }
+            ]
+        },
+        {
+            "name": "Tiesj Benoot",
+            "team": "Lotto Soudal",
+            "rider_nr": 71,
+            "country": "Belgium",
+            "rankings": [
+                {
+                    "stage_id": 1,
+                    "place": 3
+                }
+            ]
+        },
+        {
+            "name": "Peter Sagan",
+            "team": "Bora Hansgrohe",
+            "rider_nr": 12,
+            "country": "Slovakia",
+            "rankings": [
+                {
+                    "stage_id": 1,
+                    "place": 1
+                }
+            ]
         }
     ]
 }
