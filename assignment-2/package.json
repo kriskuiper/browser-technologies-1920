@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "express": "^4.17.1",
+    "lowdb": "^1.0.0",
     "module-alias": "^2.2.2",
     "nunjucks": "^3.2.1",
     "query-string": "^6.11.1"
