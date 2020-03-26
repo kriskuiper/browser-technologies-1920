@@ -8,7 +8,7 @@ module.exports = (request, response) => {
         ranking,
         message
     } = request.query
-    const url = `${request.protocol}://${request.host}/stage-${stage_id}/${classification}/${ranking}`
+    const url = `${request.protocol}://${request.hostname}/stage-${stage_id}/${classification}/${ranking}`
     const userMessage = `
         ${message}
         
