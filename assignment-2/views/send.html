@@ -1,11 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Share</title>
-</head>
-<body>
-    <a href="mailto:{{ email }}?subject=Something happened in the tour!&body={{ message }}">Versturen</a>
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block content %}
+    <section>
+        <h1>Send stage data to your friends</h1>
+        <a href="mailto:{{ email }}?subject=Something happened in the tour!&body={{ message }}">Versturen</a>
+    </section>
+{% endblock %}
