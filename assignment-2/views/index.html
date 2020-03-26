@@ -1,48 +1,61 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Current standings</title>
-</head>
-<body>
-    <header>
-        <h1>Stage {{ stage.id }}: {{ stage.name }}</h1>
+{% extends "base.html" %}
 
-        <nav>
-            <ul>
-                <li><a href="/stage-{{ stage.id }}/stage_ranking/{{ ranking }}">Stage ranking</a></li>
-                <li><a href="/stage-{{ stage.id }}/general_ranking/{{ ranking }}">General ranking</a></li>
+{% block content %}
+    <header class="stage-page__header">
+        <h1 class="stage-page__title">Stage {{ stage.id }}: {{ stage.name }}</h1>
+
+        <nav class="stage-page__navigation">
+            <ul class="unstyled-list stage-page__list stage-page__classifications">
+                <li class="stage-page__classification {% if classification == 'stage_ranking' %} stage-page__classification--is-active {% endif %}">
+                    <a href="/stage-{{ stage.id }}/stage_ranking/{{ ranking }}">Stage ranking</a>
+                </li>
+                <li class="stage-page__classification {% if classification == 'general_ranking' %} stage-page__classification--is-active {% endif %}">
+                    <a href="/stage-{{ stage.id }}/general_ranking/{{ ranking }}">General ranking</a>
+                </li>
             </ul>
 
-            <ul>
-                <li><a href="/stage-{{ stage.id }}/{{ classification }}/yellow">Yellow jersey</a></li>
-                <li><a href="/stage-{{ stage.id }}/{{ classification }}/points">Points jersey</a></li>
-                <li><a href="/stage-{{ stage.id }}/{{ classification }}/climber">Climber standings</a></li>
-                <li><a href="/stage-{{ stage.id }}/{{ classification }}/youth">Youth standings</a></li>
+            <ul class="unstyled-list stage-page__list stage-page__rankings">
+                <li class="stage-page__ranking {% if ranking == 'yellow' %} stage-page__ranking--is-active {% endif %}">
+                    <a href="/stage-{{ stage.id }}/{{ classification }}/yellow">Yellow jersey</a>
+                </li>
+                <li class="stage-page__ranking {% if ranking == 'points' %} stage-page__ranking--is-active {% endif %}">
+                    <a href="/stage-{{ stage.id }}/{{ classification }}/points">Points jersey</a>
+                </li>
+                <li class="stage-page__ranking {% if ranking == 'climber' %} stage-page__ranking--is-active {% endif %}">
+                    <a href="/stage-{{ stage.id }}/{{ classification }}/climber">Climber standings</a>
+                </li>
+                <li class="stage-page__ranking {% if ranking == 'youth' %} stage-page__ranking--is-active {% endif %}">
+                    <a href="/stage-{{ stage.id }}/{{ classification }}/youth">Youth standings</a>
+                </li>
             </ul>
         </nav>
     </header>
 
     <main>
         <section>
-            <a href="/share?id={{ stage.id }}&classification={{ classification }}&ranking={{ ranking }}">Share the standings</a>
+            <a
+                href="/share?id={{ stage.id }}&classification={{ classification }}&ranking={{ ranking }}"
+                class="button"
+            >Share the standings</a>
 
-            <h2>Stage information:</h2>
-            <p>Total: {{ stage.distance_total }}km</p>
-            <p>Ridden: {{ stage.distance_from_start }}km</p>
+            <header class="stage-page__stage-info">
+                <h2>Stage information:</h2>
+                <p>Total: {{ stage.distance_total }}km</p>
+                <p>Ridden: {{ stage.distance_from_start }}km</p>
+            </header>
 
-            <h3>Standings:</h3>
-            <ol>
-                {% for rider in data %}
-                    <li>
-                        <p>{{ rider.name }}</p>
-                        <p>Team: {{ rider.team }}</p>
-                        <p>Gap: {{ rider.gap }}</p>
-                    </li>
-                {% endfor %}
-            </ol>
+            <div class="stage-page__standings">
+                <h3>Standings:</h3>
+                <ol class="stage-page__standings-list">
+                    {% for rider in data %}
+                        <li class="stage-page__standings-list-item">
+                            <p>{{ rider.name }}</p>
+                            <p>Team: {{ rider.team }}</p>
+                            <p>Gap: {{ rider.gap }}</p>
+                        </li>
+                    {% endfor %}
+                </ol>
+            </div>
         </section>
     </main>
-</body>
-</html>
+{% endblock %}

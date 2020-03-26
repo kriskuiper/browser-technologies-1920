@@ -1,0 +1,101 @@
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Open Sans', Arial, 'Helvetica Neue', Helvetica, sans-serif;
+}
+
+body > * {
+    margin-bottom: 20px;
+}
+
+.button {
+    background: yellow;
+    text-decoration: none;
+    padding: 10px;
+    display: block;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.unstyled-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.stage-page__title {
+    background: yellow;
+    margin: 0 auto;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.stage-page__list {
+    padding: 0 10px;
+}
+
+.stage-page__classifications {
+    margin-bottom: 10px;
+}
+
+.stage-page__classification {
+    float: left;
+    text-align: center;
+    font-size: 12px;
+    width: 50%;
+    text-transform: uppercase;
+    font-weight: 700;
+    border: 1px solid black;
+}
+
+.stage-page__classification--is-active {
+    background: yellow;
+    border: 1px solid transparent;
+}
+
+.stage-page__rankings {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.stage-page__ranking {
+    width: 50%;
+    text-align: center;
+    border-bottom: 2px solid transparent;
+}
+
+.stage-page__ranking--is-active {
+    border-bottom: 2px solid black;
+}
+
+.stage-page__list a {
+    padding: 10px;
+    display: block;
+    text-decoration: none;
+}
+
+.stage-page__stage-info,
+.stage-page__standings {
+    padding: 0 10px;
+}
+
+.stage-page__standings-list {
+    padding: 0 20px;
+}
+
+@supports (display: flex) {
+    .stage-page__list {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .stage-page__classification {
+        float: none;
+    }
+}
