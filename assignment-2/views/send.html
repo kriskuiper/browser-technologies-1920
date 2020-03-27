@@ -1,8 +1,14 @@
 {% extends 'base.html' %}
+{% set title = "All set, share the standings" %}
 
 {% block content %}
-    <section>
-        <h1>Send stage data to your friends</h1>
-        <a href="mailto:{{ email }}?subject=Something happened in the tour!&body={{ message }}">Versturen</a>
-    </section>
+    <header>
+        <h1 class="app-title">All set! Send the stage data to your friends</h1>
+    </header>
+    <main>
+        <a
+            href="mailto:{{ email }}?subject=Something happened in the tour!&body={{ message }}"
+            class="button"
+        >Share standings</a>
+    </main>
 {% endblock %}

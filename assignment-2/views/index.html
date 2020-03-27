@@ -1,8 +1,9 @@
 {% extends "base.html" %}
+{% set title = "Stage " + stage.id + ": " + stage.name %}
 
 {% block content %}
     <header class="stage-page__header">
-        <h1 class="stage-page__title">Stage {{ stage.id }}: {{ stage.name }}</h1>
+        <h1 class="app-title">Stage {{ stage.id }}: {{ stage.name }}</h1>
 
         <nav class="stage-page__navigation">
             <ul class="unstyled-list stage-page__list stage-page__classifications">

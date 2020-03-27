@@ -1,27 +1,33 @@
 {% extends 'base.html' %}
+{% set title = "Share standings with friends" %}
 
 {% block content %}
-    <h2>Share the standings with your friends</h2>
+    <main>
+        <h2 class="app-title">Share the standings with your friends</h2>
 
-    <form action="/send">
-        <div>
-            <label>
-                Your friends' email
-                <input type="email" name="email">
-            </label>
-        </div>
+        <form
+            action="/send"
+            class="share-page__form"
+        >
+            <div class="share-page__input-group">
+                <label>
+                    Your friends' email
+                    <input type="email" name="email">
+                </label>
+            </div>
 
-        <div>
-            <label>
-                Your message
-                <textarea name="message" cols="30" rows="10"></textarea>
-            </label>
-        </div>
+            <div class="share-page__input-group">
+                <label>
+                    Your message
+                    <textarea name="message" cols="30" rows="10"></textarea>
+                </label>
+            </div>
 
-        <input type="hidden" name="stage_id" value="{{ id }}">
-        <input type="hidden" name="classification" value="{{ classification }}">
-        <input type="hidden" name="ranking" value="{{ ranking }}">
+            <input type="hidden" name="stage_id" value="{{ id }}">
+            <input type="hidden" name="classification" value="{{ classification }}">
+            <input type="hidden" name="ranking" value="{{ ranking }}">
 
-        <button>Submit</button>
-    </form>
+            <button class="button">Submit</button>
+        </form>
+    </main>
 {% endblock %}

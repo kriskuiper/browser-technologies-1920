@@ -13,13 +13,27 @@ body > * {
     margin-bottom: 20px;
 }
 
+input,
+textarea {
+    display: block;
+    width: 100%;
+    border: none;
+    background: #eee;
+    padding: 10px;
+    margin-top: 10px;
+}
+
 .button {
+    color: #000;
+    font-size: 12px;
     background: yellow;
     text-decoration: none;
     padding: 10px;
-    display: block;
+    display: inline-block;
     text-transform: uppercase;
     font-weight: 700;
+    border: none;
+    margin: 0 10px;
 }
 
 .unstyled-list {
@@ -28,7 +42,7 @@ body > * {
     margin: 0;
 }
 
-.stage-page__title {
+.app-title {
     background: yellow;
     margin: 0 auto;
     padding: 10px;
@@ -86,6 +100,14 @@ body > * {
 
 .stage-page__standings-list {
     padding: 0 20px;
+}
+
+.share-page__form {
+    padding: 0 10px;
+}
+
+.share-page__input-group {
+    margin-bottom: 20px;
 }
 
 @supports (display: flex) {
