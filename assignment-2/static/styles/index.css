@@ -13,12 +13,30 @@ body > * {
     margin-bottom: 20px;
 }
 
+*:focus {
+    outline: 4px solid black;
+}
+
+a {
+    color: inherit;
+}
+
+p {
+    margin: 0;
+}
+
+p + p {
+    margin-top: 10px;
+}
+
 input,
 textarea {
     display: block;
     width: 100%;
     border: none;
     background: #eee;
+    border: 1px solid #000;
+    font-size: 1em;
     padding: 10px;
     margin-top: 10px;
 }
@@ -93,9 +111,32 @@ textarea {
     text-decoration: none;
 }
 
+.stage-page__standings-list {
+    font-weight: 700;
+}
+
+.stage-page__standings-list li {
+    padding: 10px;
+}
+
+/*
+    We don't have to use @supports here since
+    if this is not supported this would just
+    ignored and so this is already an enhancement
+    in itself.
+*/
+.stage-page__standings-list li:nth-child(even) {
+    background: #eee;
+}
+
 .stage-page__stage-info,
 .stage-page__standings {
     padding: 0 10px;
+}
+
+.stage-page__stage-info {
+    padding-bottom: 20px;
+    border-bottom: 8px solid yellow;
 }
 
 .stage-page__standings-list {
