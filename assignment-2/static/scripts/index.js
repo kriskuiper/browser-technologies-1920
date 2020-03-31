@@ -93,9 +93,23 @@ function handleFormSubmit(event) {
 function handleRankingChange(event) {
     event.preventDefault()
 
+    for (link of rankingLinks) {
+        // I'd prefer a link.closest('li') here but that doesn't work
+        // in IE...
+        
+        const listElement = link.parentNode
+
+        if (listElement.classList.contains('stage-page__ranking--is-active')) {
+            listElement.classList.remove('stage-page__ranking--is-active')
+        }
+    }
+
     const href = event.target.href
     const url = new URL(href)
     const pathname = url.pathname
+    const li = event.target.parentNode
+
+    li.classList.add('stage-page__ranking--is-active')
 
     window.history.pushState(null, null, pathname)
 
