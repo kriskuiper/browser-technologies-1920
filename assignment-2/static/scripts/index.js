@@ -112,9 +112,9 @@ function toggleSnackbar(message) {
 
 function showSnackbar(message) {
     snackbarTextElement.textContent = message
-    snackbarElement.classList.toggle('is--hidden')
+    snackbarElement.classList.toggle('is--shown')
 }
 
 function hideSnackbar() {
-    snackbarElement.classList.toggle('is--hidden')
+    snackbarElement.classList.toggle('is--shown')
 }

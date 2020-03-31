@@ -162,14 +162,14 @@ textarea {
     border-radius: 3px;
     color: white;
     font-size: 14px;
-    bottom: 5px;
+    bottom: -150%;
     left: 5px;
     right: 5px;
     padding: 10px;
 }
 
-.js-snackbar.is--hidden {
-    bottom: -150%;
+.js-snackbar.is--shown {
+    bottom: 5px;
 }
 
 @supports (display: flex) {
@@ -186,12 +186,13 @@ textarea {
 
 @supports (transform: translateY(100%)) {
     .js-snackbar {
-        transform: translateY(0);
+        bottom: 0;
+        transform: translateY(150%);
         transition: transform .3s ease-in-out;
     }
 
-    .js-snackbar.is--hidden {
+    .js-snackbar.is--shown {
         bottom: 5px;
-        transform: translateY(150%);
+        transform: translateY(0);
     }
 }
