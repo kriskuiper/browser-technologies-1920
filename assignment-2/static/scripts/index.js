@@ -1,7 +1,3 @@
-if ('querySelector' in document) {
-    document.body.classList.add('js-enabled')
-}
-
 const notificationIsAvailable = Boolean(window.Notification)
 const nativeShareIsAvailable = typeof Navigator.share === 'function'
 const requestIsAvailable = typeof XMLHttpRequest !== null && typeof XMLHttpRequest !== undefined
