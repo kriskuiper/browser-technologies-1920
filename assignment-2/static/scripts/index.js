@@ -10,6 +10,8 @@ const snackbarElement = document.getElementById('js-snackbar')
 const snackbarTextElement = snackbarElement.querySelector('p')
 const rankingLinks = document.querySelectorAll('.stage-page__ranking > a')
 
+let formIsShown = false
+
 if (notificationIsAvailable && notificationButton) {
     notificationButton.removeAttribute('disabled')
     notificationButton.classList.remove('is--hidden')
@@ -66,8 +68,18 @@ function displayFormContents(target) {
         .then(function(responseDocument) {
             const form = responseDocument.querySelector('form')
 
-            form.addEventListener('submit', handleFormSubmit)
-            formContentsElement.appendChild(form)
+            if (!formIsShown) {
+                form.addEventListener('submit', handleFormSubmit)
+                formContentsElement.appendChild(form)
+
+                formIsShown = true
+            } else {
+                const currentForm = formContentsElement.querySelector('form')
+
+                formContentsElement.removeChild(currentForm)
+
+                formIsShown = false
+            }
         })
         .catch(function(error) {
             toggleSnackbar(error)
