@@ -61,7 +61,84 @@ Het opslaan van notities is bovenstaand al een beetje beschreven, echter. We kun
 Gebruikers kunnen nu via native sharing op mobiel door navigator.share de boel delen. Als dit niet ondersteund wordt valt 'ie terug op de oudere versie van hoe dit in de vorige laag werkte.
 
 ## Over progressive enhancement
-Something about progressive enhancement
+Het principe progressive enhancement gaat erover dat je je applicatie als het ware opbouwt in verschillende lagen, waarbij je in eerste instantie de 'slechtste' browser en / of het slechtste device in acht neem en ervoor zorgt dat de core functionaliteit van je applicatie dan alsnog werkt.
+
+Daarna kan je gaan kijken of je zogenaamde enhancements (toffere dingen) toe kan voegen aan je applicatie om de user experience ervan te versoepelen en te verbeteren.
+
+Hoe ik dit in mijn applicatie toe pas is bijvoorbeeld dat zolang er geen JavaScript is, ik zoveel mogelijk leun op (server-side) web technieken en de gebruiker eigenlijk van pagina naar pagina gaat. Wanneer er echter wel JavaScript beschikbaar is, werkt mijn applicatie haast als een Single Page Application waarbij de gebruiker vrijwel nooit van pagina naar pagina gaat (uiteraard d.m.v. feature detection en fallbacks, daarover hieronder meer).
 
 ## Over feature detection
-Something about feature detection
+Feature detection borduurt eigenlijk voort op het idee van progressive enhancement. Je gaat hierbij specifiek kijken of bepaalde JavaScript en / of CSS features ondersteund worden binnen de context waarin je website op dat moment draait.
+
+Waneer er in de context die ene toffe feature wordt ondersteund maak je daar gebruik van, en anders zorg je ervoor dat je applicatie terug valt op een zogenaamde 'fallback'. Die fallback kan vanalles zijn, een aantal voorbeelden uit mijn applicatie zijn bijvoorbeeld dat ik met m'n CSS het volgende doe:
+
+```css
+/* Eerder in de stylesheet, een fallback op float als flex niet ondersteund wordt */
+.stage-page__classification {
+    float: left;
+    text-align: center;
+    font-size: 12px;
+    width: 50%;
+    text-transform: uppercase;
+    font-weight: 700;
+    border: 1px solid black;
+}
+
+/* Gebruik maken van feature detection om te kijken of display: flex ondersteund wordt */
+@supports (display: flex) {
+    .stage-page__list {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    /* Overschrijven van de float want flex wordt ondersteund */
+    .stage-page__classification {
+        float: none;
+    }
+}
+```
+
+Voor het tonen van notificaties, wat alleen met JavaScript kan, heb ik bijvoorbeeld ervoor gezorgd dat de 'toon notificaties knop' standaard disabled is, en dat de tekst iets is als "Kan op dit moment geen notificaties sturen". 
+
+Als er CSS is haal ik de knop zelfs helemaal uit het scherm en als er dan vervolgens wel JavaScript is toon ik de knop weer, enable ik 'm en verander ik de tekst. Hieronder de implementatie in JavaScript:
+
+```js
+const notificationIsAvailable = Boolean(window.Notification)
+const notificationButton = document.getElementById('js-notify-button')
+
+if (notificationIsAvailable && notificationButton) {
+    notificationButton.removeAttribute('disabled')
+    notificationButton.classList.remove('is--hidden')
+    notificationButton.textContent = 'Keep me updated'
+    notificationButton.addEventListener('click', handleNotificationPermission)
+}
+```
+
+Een ander deel waarbij ik feature detection heb gebruikt is om het delen van de uitslagen zo soepel mogelijk te laten verlopen. Tegenwoordig kan je namelijk, in ieder geval op telefoons, gebruik maken van `Navigator.share` wat app-like sharing in je applicatie brengt. Echter, op een laptop kan je dit niet gebruiken... Daar moet ik dus een fallback voor hebben:
+
+```js
+const nativeShareIsAvailable = typeof Navigator.share === 'function'
+const requestIsAvailable = typeof XMLHttpRequest !== null && typeof XMLHttpRequest !== undefined
+
+function handleShare(event) {
+    // Als ze beiden niet ondersteund worden is het gewoon een linkje
+    // naar de /share pagina waar het formulier staat en je een e-mail
+    // in kan vullen
+    if (requestIsAvailable || nativeShareIsAvailable) {
+        event.preventDefault()
+    }
+
+    // Joejoe, we hebben native share, laten we er gebruik van maken
+    if (nativeShareIsAvailable) {
+        return Navigator.share({
+            title: 'Standings in the Tour de France',
+            text: 'I like you to watch the standings in the current stage in the tour de france',
+            url: window.location.href
+        })
+    }
+
+    // Display form contents in a below the share buttons
+    displayFormContents(event.target)
+}
+```
