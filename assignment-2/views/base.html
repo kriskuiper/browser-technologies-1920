@@ -8,5 +8,14 @@
     {% block content %}
         <h1>Page</h1>
     {% endblock %}
+
+    {% include('partials/snackbar.html') %}
+
+    <script src="/scripts/index.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            console.log('Service worker available')
+        }
+    </script>
 </body>
 </html>

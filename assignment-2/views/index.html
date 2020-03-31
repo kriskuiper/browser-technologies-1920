@@ -34,10 +34,22 @@
 
     <main>
         <section>
-            <a
-                href="/share?id={{ stage.id }}&classification={{ classification }}&ranking={{ ranking }}"
-                class="button"
-            >Share the standings</a>
+            <div>
+                <a
+                    href="/share?id={{ stage.id }}&classification={{ classification }}&ranking={{ ranking }}"
+                    class="button"
+                    id="share-link"
+                >Share the standings</a>
+                <button
+                    disabled
+                    class="button js-notify-button is--hidden"
+                    id="js-notify-button"
+                >
+                    Can't send notifications
+                </button>
+            </div>
+
+            <div id="form-contents"></div>
 
             <header class="stage-page__stage-info">
                 <h2>Stage information:</h2>
