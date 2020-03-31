@@ -68,6 +68,10 @@ textarea {
     background: grey;
 }
 
+.js-notify-button.is--hidden {
+    display: none;
+}
+
 .unstyled-list {
     list-style: none;
     padding: 0;
