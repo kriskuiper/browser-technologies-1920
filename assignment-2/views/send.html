@@ -4,11 +4,9 @@
 {% block content %}
     <header>
         <h1 class="app-title">All set! Send the stage data to your friends</h1>
-    </header>
-    <main>
         <a
             href="mailto:{{ email }}?subject=Something happened in the tour!&body={{ message }}"
             class="button"
         >Share standings</a>
-    </main>
+    </header>
 {% endblock %}

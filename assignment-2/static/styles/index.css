@@ -13,6 +13,11 @@ body > * {
     margin-bottom: 20px;
 }
 
+main {
+    max-width: 40em;
+    margin: 0 auto;
+}
+
 *:focus {
     outline: 4px solid black;
 }
@@ -98,9 +103,15 @@ textarea {
     border: 1px solid transparent;
 }
 
+.stage-page__buttons {
+    margin-bottom: 10px;
+}
+
 .stage-page__rankings {
     display: flex;
     flex-wrap: wrap;
+    max-width: 40em;
+    margin: 0 auto;
 }
 
 .stage-page__ranking {
@@ -162,6 +173,7 @@ textarea {
 .js-snackbar {
     margin-bottom: 0;
     position: fixed;
+    max-width: 440px;
     background: #333;
     border-radius: 3px;
     color: white;
