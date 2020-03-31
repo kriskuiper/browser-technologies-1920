@@ -1,7 +1,9 @@
 const notificationIsAvailable = Boolean(window.Notification)
-const nativeShareIsAvailable = typeof Navigator.share === 'function'
+const nativeShareIsAvailable = typeof navigator.share === 'function'
 const requestIsAvailable = typeof XMLHttpRequest !== null && typeof XMLHttpRequest !== undefined
 const pushstateIsAvailable = typeof window.history.pushState !== null && typeof window.history.pushState !== undefined
+
+console.log('joejoe', typeof navigator.share)
 
 const formContentsElement = document.getElementById('form-contents')
 const notificationButton = document.getElementById('js-notify-button')
@@ -50,7 +52,7 @@ function handleShare(event) {
     }
 
     if (nativeShareIsAvailable) {
-        return Navigator.share({
+        return navigator.share({
             title: 'Standings in the Tour de France',
             text: 'I like you to watch the standings in the current stage in the tour de france',
             url: window.location.href
