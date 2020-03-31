@@ -4,19 +4,27 @@ if ('querySelector' in document) {
 
 const notificationIsAvailable = Boolean(window.Notification)
 const nativeShareIsAvailable = typeof Navigator.share === 'function'
-const requestIsAvailable = typeof XMLHttpRequest !== null || typeof XMLHttpRequest !== undefined
+const requestIsAvailable = typeof XMLHttpRequest !== null && typeof XMLHttpRequest !== undefined
+const pushstateIsAvailable = typeof window.history.pushState !== null && typeof window.history.pushState !== undefined
 
 const formContentsElement = document.getElementById('form-contents')
 const notificationButton = document.getElementById('js-notify-button')
 const shareLink = document.getElementById('share-link')
 const snackbarElement = document.getElementById('js-snackbar')
 const snackbarTextElement = snackbarElement.querySelector('p')
+const rankingLinks = document.querySelectorAll('.stage-page__ranking > a')
 
 if (notificationIsAvailable && notificationButton) {
     notificationButton.removeAttribute('disabled')
     notificationButton.classList.remove('is--hidden')
     notificationButton.textContent = 'Keep me updated'
     notificationButton.addEventListener('click', handleNotificationPermission)
+}
+
+if (pushstateIsAvailable && rankingLinks) {
+    for (link of rankingLinks) {
+        link.addEventListener('click', handleRankingChange)
+    }
 }
 
 shareLink.addEventListener('click', handleShare)
@@ -70,6 +78,58 @@ function displayFormContents(target) {
         })
 }
 
+function handleFormSubmit(event) {
+    event.preventDefault()
+    
+    const link = document.createElement('a')
+    const emailInput = event.target.querySelector('[type="email"]')
+    const messageInput = event.target.querySelector('textarea')
+    const emailInputValue = emailInput.value
+    const messageInputValue = messageInput.value
+
+    link.href = `mailto:${emailInputValue}?subject=Something happened in the tour!&body=${messageInputValue}`
+    link.classList.add('button')
+    link.textContent = 'Email your friend'
+
+    event.target.appendChild(link)
+}
+
+function handleRankingChange(event) {
+    event.preventDefault()
+
+    const href = event.target.href
+    const url = new URL(href)
+    const pathname = url.pathname
+
+    window.history.pushState(null, null, pathname)
+
+    getHTMLContents('GET', href)
+        .then(function(responseDocument) {
+            const standingsContainerElement = document.querySelector('.stage-page__standings')
+            const currentStandings = document.querySelector('.stage-page__standings-list')
+            const newStandings = responseDocument.querySelector('.stage-page__standings-list')
+
+            standingsContainerElement.replaceChild(newStandings, currentStandings)
+        })
+        .catch(function(error) {
+            toggleSnackbar(OverconstrainedError)
+        })
+}
+
+function toggleSnackbar(message) {
+    showSnackbar(message)
+    setTimeout(hideSnackbar, 3000)
+}
+
+function showSnackbar(message) {
+    snackbarTextElement.textContent = message
+    snackbarElement.classList.toggle('is--shown')
+}
+
+function hideSnackbar() {
+    snackbarElement.classList.toggle('is--shown')
+}
+
 function getHTMLContents(method, url) {
     return new Promise(function(resolve, reject) {
         const xhr = new XMLHttpRequest()
@@ -87,34 +147,4 @@ function getHTMLContents(method, url) {
         
         xhr.send()
     })
-}
-
-function handleFormSubmit(event) {
-    event.preventDefault()
-    
-    const link = document.createElement('a')
-    const emailInput = event.target.querySelector('[type="email"]')
-    const messageInput = event.target.querySelector('textarea')
-    const emailInputValue = emailInput.value
-    const messageInputValue = messageInput.value
-
-    link.href = `mailto:${emailInputValue}?subject=Something happened in the tour!&body=${messageInputValue}`
-    link.classList.add('button')
-    link.textContent = 'Email your friend'
-
-    event.target.appendChild(link)
-}
-
-function toggleSnackbar(message) {
-    showSnackbar(message)
-    setTimeout(hideSnackbar, 3000)
-}
-
-function showSnackbar(message) {
-    snackbarTextElement.textContent = message
-    snackbarElement.classList.toggle('is--shown')
-}
-
-function hideSnackbar() {
-    snackbarElement.classList.toggle('is--shown')
 }
