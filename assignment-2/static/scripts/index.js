@@ -15,7 +15,7 @@ const snackbarTextElement = snackbarElement.querySelector('p')
 if (notificationIsAvailable && notificationButton) {
     notificationButton.removeAttribute('disabled')
     notificationButton.classList.remove('is--hidden')
-    notificationButton.textContent = 'Send notifications'
+    notificationButton.textContent = 'Keep me updated'
     notificationButton.addEventListener('click', handleNotificationPermission)
 }
 
