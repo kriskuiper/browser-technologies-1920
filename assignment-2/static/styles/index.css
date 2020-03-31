@@ -64,7 +64,8 @@ textarea {
 }
 
 .button:disabled {
-    color: #333;
+    color: #222;
+    background: grey;
 }
 
 .unstyled-list {
