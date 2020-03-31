@@ -57,20 +57,36 @@ function handleShare(event) {
 
 function displayFormContents(target) {
     const url = target.href
-    const xhr = new XMLHttpRequest()
 
-    xhr.open('GET', url)
-    xhr.responseType = 'document'
+    return getHTMLContents('GET', url)
+        .then(function(responseDocument) {
+            const form = responseDocument.querySelector('form')
 
-    xhr.onload = function() {
-        const responseDocument = xhr.response
-        const form = responseDocument.querySelector('form')
+            form.addEventListener('submit', handleFormSubmit)
+            formContentsElement.appendChild(form)
+        })
+        .catch(function(error) {
+            toggleSnackbar(error)
+        })
+}
 
-        form.addEventListener('submit', handleFormSubmit)
-        formContentsElement.appendChild(form)
-    }
+function getHTMLContents(method, url) {
+    return new Promise(function(resolve, reject) {
+        const xhr = new XMLHttpRequest()
 
-    xhr.send()
+        xhr.open(method, url)
+        xhr.responseType = 'document'
+
+        xhr.onload = function() {
+            resolve(xhr.response)
+        }
+
+        xhr.onerror = function() {
+            reject('An error happened')
+        }
+        
+        xhr.send()
+    })
 }
 
 function handleFormSubmit(event) {
@@ -82,9 +98,7 @@ function handleFormSubmit(event) {
     const emailInputValue = emailInput.value
     const messageInputValue = messageInput.value
 
-    const href = `mailto:${emailInputValue}?subject=Something happened in the tour!&body=${messageInputValue}`
-
-    link.href = href
+    link.href = `mailto:${emailInputValue}?subject=Something happened in the tour!&body=${messageInputValue}`
     link.classList.add('button')
     link.textContent = 'Email your friend'
 
