@@ -1,20 +1,15 @@
 # Browser technologies assignment 2
-> Work out a case and make the functionality work for every user; regardless of context, browser,device or input type.
+> Work out a case and make the functionality work for every user; regardless of context, browser, device or input type.
 
 Dit project is een Express (Node JS) applicatie omdat ik voor mijn oplossing het e.e.a. aan server-side logica nodig heb. Zo maak ik bijvoorbeeld in de meest simpele versie veel gebruik van queryparams om de opgeschreven uitslagen deelbaar te maken.
-
-## Waar wil je feedback over?
-1. Ik wil me met deze applicatie gaan focussen op het laten zien van uitslagen van een bepaalde Tour de France etappe. Hoe kan ik dit nog wat fancyer maken in plaats van alleen maar de gebruiker uitslagen laten invullen en delen?
-2. In hoeverre kan ik die hidden input fields (zie `views/detail`) "misbruiken" totdat het een lelijke oplossing wordt?
-3. ...
 
 ## Gekozen use case:
 > Ik wil de scores of tijden van een sportwedstrijd kunnen bijhouden tijdens de wedstrijd en opslaan en doorsturen
 
 ## Features
-Mijn case heeft de volgende drie features:
-1. Bijhouden van scores / tijden (notities maken)
-2. Het opslaan van je notities
+Mijn case heeft de volgende drie features nodig om de core functionaliteit te ondersteunen:
+1. Bekijken / bijhouden van uitslagen
+2. Het opslaan van uitslagen zodat het later teruggekeken kan worden
 3. Het doorsturen van je notities naar anderen
 
 ## Enhancement van de features
@@ -64,3 +59,9 @@ Het opslaan van notities is bovenstaand al een beetje beschreven, echter. We kun
 
 #### 3. Doorsturen van uitslagen / tijden naar anderen
 Gebruikers kunnen nu via native sharing op mobiel door navigator.share de boel delen. Als dit niet ondersteund wordt valt 'ie terug op de oudere versie van hoe dit in de vorige laag werkte.
+
+## Over progressive enhancement
+Something about progressive enhancement
+
+## Over feature detection
+Something about feature detection
